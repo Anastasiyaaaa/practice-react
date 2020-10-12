@@ -2,6 +2,8 @@ import React from 'react';
 import TodoList from './Todo/TodoList';
 import Context from './Context.js'
 import AddTodo from "./Todo/AddTodo";
+import UseStateHook from "./Hooks/UseState";
+
 //todo 55'
 //https://www.youtube.com/watch?v=xJZa2_aldDs&ab_channel=%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BB%D0%B5%D0%BD%D0%9C%D0%B8%D0%BD%D0%B8%D0%BD
 function APP(){
@@ -40,9 +42,9 @@ function APP(){
     }
     function addTodo(title) {
         setTodos(todos.concat([{
-            title,
             id: Date.now(),
-            completed: false
+            completed: false,
+            title
         }
         ]))
     }
@@ -57,7 +59,7 @@ function APP(){
                     <TodoList todos={todos} onToggle={toggleTodo}/>
                     ) : (<p>No todos!</p>)
                 }
-
+                <UseStateHook />
             </div>
         </Context.Provider>
 
